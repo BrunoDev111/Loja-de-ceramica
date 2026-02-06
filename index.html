@@ -1,13 +1,40 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>loja-ceramica</title>
-  </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cerâmica Pro - Pias, revestimentos e louças premium para seu banheiro">
+    <title>Cerâmica Pro - Elegância Premium para Seu Banheiro</title>
+    <link rel="stylesheet" href="./src/css/components.css">
+    <link rel="stylesheet" href="./src/css/global.css">
+</head>
   <body>
-    <div id="root"></div>
+    <header class="header">
+      <div class="top-bar">
+        <div class="container">
+          <span>🚚 Frete GRÁTIS acima de R$</span>
+          <span>💳 Até 12x sem juros | 10% OFF no PIX</span>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="header-content">
+          <a href="index.html" class="logo">CERÂMICA PRO</a>
+          <div class="search-bar">
+            <input type="text" placeholder="Buscar produtos..." id="searchInput">
+            <button onclick="buscarProdutos()">Buscar</button>
+          </div>
+
+          <div class="header-icons">
+                    <a href="pages/login.html">👤 Entrar</a>
+                    <a href="pages/favoritos.html">❤️ Favoritos (<span id="favCount">0</span>)</a>
+                    <a href="pages/carrinho.html">🛒 Carrinho (<span id="cartCount">0</span>)</a>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+    </header>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

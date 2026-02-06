@@ -1,0 +1,33 @@
+/* ========== TOP BAR ========== */
+.top-bar{
+    background: var(--gradient-primary);
+    color: var(--white);
+    padding: 12px 0;
+}
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ========== HEADER ========== */
+.header{
+    background: var(--white);
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.header-content{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 20px 0;
+}
+
+/* Header Icons */
+.header-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
