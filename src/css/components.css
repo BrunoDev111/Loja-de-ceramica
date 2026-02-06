@@ -31,3 +31,31 @@
     gap: 20px;
     align-items: center;
 }
+
+/* ========== NAVIGATION ========== */
+.nav {
+    background: var(--white);
+    border-top: 1px solid var(--light-gray);
+}
+.nav .container {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.nav .container::-webkit-scrollbar {
+    display: none;
+}
+.nav a {
+    padding: 16px 0;
+    color: var(--text);
+    font-weight: 500;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: var(--transition);
+}
+.nav a:hover,
+.nav a.active {
+    color: var(--accent);
+    border-bottom-color: var(--gold);
+}
