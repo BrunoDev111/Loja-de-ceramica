@@ -4,6 +4,7 @@ import TopBar from './components/TopBar'
 import Header from './components/Header'
 import Navigation from './components/Navigation'
 import Hero from './components/Hero'
+import Categories from './components/Categories'
 
 export default function App() {
   const [cartCount, setCartCount] = useState(0)
@@ -23,6 +24,7 @@ export default function App() {
       </header>
 
       <Hero />
+      <Categories />
     </>
   )
 }
