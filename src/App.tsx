@@ -6,6 +6,7 @@ import Navigation from './components/Navigation'
 import Hero from './components/Hero'
 import Categories from './components/Categories'
 import FeaturedProducts from './components/FeaturedProducts'
+import Footer from './components/Footer'
 
 export default function App() {
   const [cartCount, setCartCount] = useState(0)
@@ -30,6 +31,8 @@ export default function App() {
         onAddToCart={() => setCartCount(c => c + 1)}
         onAddToFav={() => setFavCount(f => f + 1)}
       />
+          <Footer />
     </>
+    
   )
 }
