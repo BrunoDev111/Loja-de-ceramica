@@ -6,7 +6,7 @@ export default function Footer() {
 
           <div className="footer-col">
             <h3 className="footer-logo">CERÂMICA PRO</h3>
-            <p>Produtos Premium para transformar seu banheiro com elegância e qualidade.</p>
+            <p>Produtos premium para transformar seu banheiro com elegância e qualidade.</p>
           </div>
 
           <div className="footer-col">
