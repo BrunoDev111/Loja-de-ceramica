@@ -7,6 +7,7 @@ import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import Produtos from './pages/Produtos'
+import Carrinho from './pages/Carrinho'
 
 export default function App() {
   const [cartCount, setCartCount] = useState(0)
@@ -44,6 +45,12 @@ export default function App() {
                 onAddToFav={() => setFavCount(f => f + 1)}
               />
             }
+          />
+          <Route path="/carrinho" 
+          element={
+              <Carrinho 
+              />
+            } 
           />
         </Routes>
       </main>

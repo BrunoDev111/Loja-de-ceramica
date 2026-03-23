@@ -404,3 +404,26 @@
     font-size: 13px;
     opacity: 0.6;
 }
+/* ========== CARRINHO ========== */
+.carrinho {
+    padding: 60px 0;
+    min-height: 60vh;
+}
+
+.carrinho-empty {
+    text-align: center;
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.carrinho-empty span {
+    font-size: 80px;
+}
+
+.carrinho-empty p {
+    font-size: 20px;
+    color: var(--gray);
+}
