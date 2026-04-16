@@ -1,19 +1,17 @@
 import { useState } from 'react'
+import { useCart } from '../context/CartContext'
 
 interface HeaderProps {
-  cartCount: number
   favCount: number
-  onAddToCart: () => void
-  onAddToFav: () => void
 }
 
-export default function Header({ cartCount, favCount }: HeaderProps) {
+export default function Header({ favCount }: HeaderProps) {
+  const { cartCount } = useCart()
   const [searchQuery, setSearchQuery] = useState('')
 
   function handleSearch() {
     if (searchQuery.trim()) {
       console.log('Buscando:', searchQuery)
-      // TODO: implementar lógica de busca
     }
   }
 
@@ -25,7 +23,6 @@ export default function Header({ cartCount, favCount }: HeaderProps) {
     <div className="container">
       <div className="header-content">
         <a href="/" className="logo">CERÂMICA PRO</a>
-
         <div className="search-bar">
           <input
             type="text"
@@ -36,7 +33,6 @@ export default function Header({ cartCount, favCount }: HeaderProps) {
           />
           <button onClick={handleSearch}>Buscar</button>
         </div>
-
         <div className="header-icons">
           <a href="/login">👤 Entrar</a>
           <a href="/favoritos">❤️ Favoritos ({favCount})</a>

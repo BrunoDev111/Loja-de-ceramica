@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { CartProvider } from './context/CartContext'
 import './css/components.css'
 import TopBar from './components/TopBar'
 import Header from './components/Header'
@@ -11,59 +12,28 @@ import Carrinho from './pages/Carrinho'
 import Contato from './pages/Contato'
 
 export default function App() {
-  const [cartCount, setCartCount] = useState(0)
   const [favCount, setFavCount] = useState(0)
 
   return (
-    <BrowserRouter>
-      <header className="header">
-        <TopBar />
-        <Header
-          cartCount={cartCount}
-          favCount={favCount}
-          onAddToCart={() => setCartCount(c => c + 1)}
-          onAddToFav={() => setFavCount(f => f + 1)}
-        />
-        <Navigation />
-      </header>
+    <CartProvider>
+      <BrowserRouter>
+        <header className="header">
+          <TopBar />
+          <Header favCount={favCount} />
+          <Navigation />
+        </header>
 
-      <main>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                onAddToCart={() => setCartCount(c => c + 1)}
-                onAddToFav={() => setFavCount(f => f + 1)}
-              />
-            }
-          />
-          <Route
-            path="/produtos"
-            element={
-              <Produtos
-                onAddToCart={() => setCartCount(c => c + 1)}
-                onAddToFav={() => setFavCount(f => f + 1)}
-              />
-            }
-          />
-          <Route path="/carrinho" 
-          element={
-              <Carrinho 
-              />
-            } 
-          />
-          <Route path="/contato" 
-          element={
-              <Contato 
-              />
-            }
-          />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home onAddToFav={() => setFavCount(f => f + 1)} />} />
+            <Route path="/produtos" element={<Produtos onAddToFav={() => setFavCount(f => f + 1)} />} />
+            <Route path="/carrinho" element={<Carrinho />} />
+            <Route path="/contato" element={<Contato />} />
+          </Routes>
+        </main>
 
-        </Routes>
-      </main>
-
-      <Footer />
-    </BrowserRouter>
+        <Footer />
+      </BrowserRouter>
+    </CartProvider>
   )
 }

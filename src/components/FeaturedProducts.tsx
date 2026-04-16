@@ -1,3 +1,5 @@
+import { useCart } from '../context/CartContext'
+
 const products = [
   { id: 1, name: 'Pia de Porcelana Premium', price: 899.90, category: 'Pias', emoji: '🚿' },
   { id: 2, name: 'Vaso Sanitário Slim', price: 1299.90, category: 'Louças', emoji: '🪠' },
@@ -8,11 +10,12 @@ const products = [
 ]
 
 interface FeaturedProductsProps {
-  onAddToCart: () => void
   onAddToFav: () => void
 }
 
-export default function FeaturedProducts({ onAddToCart, onAddToFav }: FeaturedProductsProps) {
+export default function FeaturedProducts({ onAddToFav }: FeaturedProductsProps) {
+  const { addToCart } = useCart()
+
   return (
     <section className="featured-products">
       <div className="container">
@@ -28,7 +31,7 @@ export default function FeaturedProducts({ onAddToCart, onAddToFav }: FeaturedPr
                   R$ {product.price.toFixed(2).replace('.', ',')}
                 </p>
                 <div className="product-actions">
-                  <button className="btn btn-primary" onClick={onAddToCart}>
+                  <button className="btn btn-primary" onClick={() => addToCart(product)}>
                     Adicionar ao Carrinho
                   </button>
                   <button className="btn-fav" onClick={onAddToFav}>❤️</button>

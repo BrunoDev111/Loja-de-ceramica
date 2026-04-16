@@ -1,3 +1,5 @@
+import { useCart } from '../context/CartContext'
+
 const allProducts = [
   { id: 1, name: 'Pia de Porcelana Premium', price: 899.90, category: 'pias', emoji: '🚿' },
   { id: 2, name: 'Vaso Sanitário Slim', price: 1299.90, category: 'loucas', emoji: '🪠' },
@@ -10,17 +12,15 @@ const allProducts = [
 ]
 
 interface ProdutosProps {
-  onAddToCart: () => void
   onAddToFav: () => void
 }
 
-export default function Produtos({ onAddToCart, onAddToFav }: ProdutosProps) {
+export default function Produtos({ onAddToFav }: ProdutosProps) {
+  const { addToCart } = useCart()
   const params = new URLSearchParams(window.location.search)
   const cat = params.get('cat') || ''
 
-  const filtered = cat
-    ? allProducts.filter(p => p.category === cat)
-    : allProducts
+  const filtered = cat ? allProducts.filter(p => p.category === cat) : allProducts
 
   return (
     <section className="featured-products">
@@ -39,7 +39,7 @@ export default function Produtos({ onAddToCart, onAddToFav }: ProdutosProps) {
                   R$ {product.price.toFixed(2).replace('.', ',')}
                 </p>
                 <div className="product-actions">
-                  <button className="btn btn-primary" onClick={onAddToCart}>
+                  <button className="btn btn-primary" onClick={() => addToCart(product)}>
                     Adicionar ao Carrinho
                   </button>
                   <button className="btn-fav" onClick={onAddToFav}>❤️</button>
